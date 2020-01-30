@@ -3,27 +3,33 @@ import About from './components/About';
 import NotFound from './components/NotFound';
 import React from 'react';
 import Products from './components/Products';
+import Login from './components/Login';
 
 const routes = [
     {
-        path : '/',
-        exact : true,
-        main : () => <Home />
+        path: '/',
+        exact: true,
+        main: () => <Home />
     },
     {
-        path : '/about',
-        exact : false,
-        main : () => <About />
+        path: '/about',
+        exact: false,
+        main: () => <About />
     },
     {
-        path : '/products',
-        exact : false,
-        main : ({match}) => <Products match={match}/>
+        path: '/products',
+        exact: false,
+        main: ({ match, location }) => <Products match={match} location={location} />
     },
     {
-        path : '',
-        exact : false,
-        main : () => <NotFound />
+        path: '/login',
+        exact: false,
+        main: ({ location }) => <Login location={ location }/>
+    },
+    {
+        path: '',
+        exact: false,
+        main: () => <NotFound />
     },
 ];
 
